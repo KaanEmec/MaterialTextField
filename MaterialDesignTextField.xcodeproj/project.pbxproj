@@ -13,8 +13,7 @@
 		986EC81D1AC9554D0059C1B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 986EC81C1AC9554D0059C1B4 /* Images.xcassets */; };
 		986EC8201AC9554D0059C1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986EC81E1AC9554D0059C1B4 /* LaunchScreen.xib */; };
 		986EC82C1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC82B1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift */; };
-		986EC83A1AC957EE0059C1B4 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC8391AC957EE0059C1B4 /* UICustomTextField.swift */; };
-		986EC83C1AC995E40059C1B4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC83B1AC995E40059C1B4 /* Extensions.swift */; };
+		986EC8421AC9AEFB0059C1B4 /* UIMaterialTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC8411AC9AEFB0059C1B4 /* UIMaterialTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +37,7 @@
 		986EC8251AC9554D0059C1B4 /* MaterialDesignTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaterialDesignTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986EC82A1AC9554D0059C1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986EC82B1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDesignTextFieldTests.swift; sourceTree = "<group>"; };
-		986EC8391AC957EE0059C1B4 /* UICustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICustomTextField.swift; sourceTree = "<group>"; };
-		986EC83B1AC995E40059C1B4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		986EC8411AC9AEFB0059C1B4 /* UIMaterialTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMaterialTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 		986EC8071AC9554D0059C1B4 = {
 			isa = PBXGroup;
 			children = (
-				986EC8391AC957EE0059C1B4 /* UICustomTextField.swift */,
 				986EC8121AC9554D0059C1B4 /* MaterialDesignTextField */,
 				986EC8281AC9554D0059C1B4 /* MaterialDesignTextFieldTests */,
 				986EC8111AC9554D0059C1B4 /* Products */,
@@ -83,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				986EC8151AC9554D0059C1B4 /* AppDelegate.swift */,
+				986EC8411AC9AEFB0059C1B4 /* UIMaterialTextView.swift */,
 				986EC8171AC9554D0059C1B4 /* ViewController.swift */,
 				986EC8191AC9554D0059C1B4 /* Main.storyboard */,
-				986EC83B1AC995E40059C1B4 /* Extensions.swift */,
 				986EC81C1AC9554D0059C1B4 /* Images.xcassets */,
 				986EC81E1AC9554D0059C1B4 /* LaunchScreen.xib */,
 				986EC8131AC9554D0059C1B4 /* Supporting Files */,
@@ -218,10 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				986EC8421AC9AEFB0059C1B4 /* UIMaterialTextView.swift in Sources */,
 				986EC8181AC9554D0059C1B4 /* ViewController.swift in Sources */,
 				986EC8161AC9554D0059C1B4 /* AppDelegate.swift in Sources */,
-				986EC83A1AC957EE0059C1B4 /* UICustomTextField.swift in Sources */,
-				986EC83C1AC995E40059C1B4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
