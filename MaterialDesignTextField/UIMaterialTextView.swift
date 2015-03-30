@@ -5,6 +5,10 @@
 //  Created by Kaan Emeç on 30.03.2015.
 //  Copyright (c) 2015 KE. All rights reserved.
 //
+//  TODO:
+//      - Documentation
+//      - Set/Get implementations of Public Variables
+//      - Border Options
 
 import UIKit
 
@@ -23,7 +27,7 @@ import UIKit
 
 class UIMaterialTextView: UITextField, UITextFieldDelegate {
 
-    var materialDelegate: UIMaterialTextViewDelegate!
+    var materialDelegate: UIMaterialTextViewDelegate?
     private var PlaceHolderText: UILabel!
     private var TitleText: UILabel!
     private var placeHolderString: String = ""
@@ -40,7 +44,8 @@ class UIMaterialTextView: UITextField, UITextFieldDelegate {
     }
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        let theFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 40))
+        super.init(frame: theFrame)
         self.delegate = self
         self.awakeFromNib()
     }
@@ -103,7 +108,7 @@ class UIMaterialTextView: UITextField, UITextFieldDelegate {
             }, completion: nil)
         }
         
-        return materialDelegate.materialTextField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
+        return materialDelegate?.materialTextField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -116,7 +121,7 @@ class UIMaterialTextView: UITextField, UITextFieldDelegate {
                         self.TitleText.textColor = self.activeTitleColor
                 }, completion: nil)
         }
-        materialDelegate.materialTextFieldDidBeginEditing?(textField)
+        materialDelegate?.materialTextFieldDidBeginEditing?(textField)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -137,23 +142,23 @@ class UIMaterialTextView: UITextField, UITextFieldDelegate {
             })
         }
         
-        materialDelegate.materialTextFieldDidEndEditing?(textField)
+        materialDelegate?.materialTextFieldDidEndEditing?(textField)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return materialDelegate.materialTextFieldShouldReturn?(textField) ?? true // called when 'return' key pressed. return NO to ignore.
+        return materialDelegate?.materialTextFieldShouldReturn?(textField) ?? true // called when 'return' key pressed. return NO to ignore.
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        return materialDelegate.materialTextFieldShouldBeginEditing?(textField) ?? true // called when 'return' key pressed. return NO to ignore.
+        return materialDelegate?.materialTextFieldShouldBeginEditing?(textField) ?? true // called when 'return' key pressed. return NO to ignore.
     }
 
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        return materialDelegate.materialTextFieldShouldEndEditing?(textField) ?? true
+        return materialDelegate?.materialTextFieldShouldEndEditing?(textField) ?? true
     }
 
     func textFieldShouldClear(textField: UITextField) -> Bool {
-        return materialDelegate.materialTextFieldShouldClear?(textField) ?? true
+        return materialDelegate?.materialTextFieldShouldClear?(textField) ?? true
     }
     
     
