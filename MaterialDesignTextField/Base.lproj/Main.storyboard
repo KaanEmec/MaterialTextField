@@ -8,6 +8,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MaterialDesignTextField" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -17,51 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-Vl-b2T">
-                                <rect key="frame" x="16" y="83" width="288" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-Gi-wT3" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                                <rect key="frame" x="23" y="59" width="274" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="y79-ht-qjO"/>
+                                    <constraint firstAttribute="height" constant="40" id="TVr-GO-RhU"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-Fv-fpL">
-                                <rect key="frame" x="16" y="137" width="288" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-2q-gTx" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                                <rect key="frame" x="23" y="107" width="274" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="nPV-94-O5p"/>
+                                    <constraint firstAttribute="height" constant="40" id="twn-Hq-cYM"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7i-Tc-F76">
-                                <rect key="frame" x="16" y="191" width="288" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BPM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-UH-nNk" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                                <rect key="frame" x="23" y="155" width="274" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="g89-d6-LNV"/>
+                                    <constraint firstAttribute="height" constant="40" id="fOv-7o-bf0"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOr-Ix-rEI">
-                                <rect key="frame" x="16" y="243" width="288" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cf1-OE-URo" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                                <rect key="frame" x="23" y="203" width="274" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TqM-an-lll"/>
+                                    <constraint firstAttribute="height" constant="40" id="Yod-Ow-If7"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NVN-Vl-b2T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Av8-59-dJ4"/>
-                            <constraint firstItem="NVN-Vl-b2T" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="63" id="EpO-Yv-KZo"/>
-                            <constraint firstItem="NVN-Vl-b2T" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="XVu-0C-2dI"/>
+                            <constraint firstItem="7Xd-Gi-wT3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="7" id="1b4-iy-0pb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X1M-UH-nNk" secondAttribute="trailing" constant="7" id="7DI-By-1aP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cf1-OE-URo" secondAttribute="trailing" constant="7" id="GI7-E6-UUm"/>
+                            <constraint firstItem="Cf1-OE-URo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="7" id="NRN-6B-DnT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MoU-2q-gTx" secondAttribute="trailing" constant="7" id="a3g-yg-Ehh"/>
+                            <constraint firstItem="MoU-2q-gTx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="7" id="c8h-ak-dQV"/>
+                            <constraint firstItem="X1M-UH-nNk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="7" id="lBZ-YX-cch"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Xd-Gi-wT3" secondAttribute="trailing" constant="7" id="yDs-tX-h6B"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="artistView" destination="NVN-Vl-b2T" id="x9J-aa-u5o"/>
-                        <outlet property="durationView" destination="I7i-Tc-F76" id="SuW-tc-Z72"/>
-                        <outlet property="tagsView" destination="WOr-Ix-rEI" id="HfY-hc-7Bk"/>
-                        <outlet property="titleView" destination="dV9-Fv-fpL" id="91a-va-LzX"/>
+                        <outlet property="denemeField" destination="7Xd-Gi-wT3" id="MR7-LA-hzH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

@@ -28,107 +28,184 @@ import UIKit
 class UIMaterialTextView: UITextField, UITextFieldDelegate {
 
     var materialDelegate: UIMaterialTextViewDelegate?
-    private var PlaceHolderText: UILabel!
-    private var TitleText: UILabel!
+    private var PlaceHolderText = UILabel()
+    private var TitleText = UILabel()
     private var placeHolderString: String = ""
+    private var Line = UIView()
     var animDurationFocus: NSTimeInterval = 0.2
     var animDurationLostFocus: NSTimeInterval = 0.4
     var animDurationEditing: NSTimeInterval = 0.3
-    var placeHolderColor: UIColor = UIColor.grayColor()
-    var activeTitleColor: UIColor = UIColor.blueColor()
-    var inactiveTitleColor: UIColor = UIColor.grayColor()
-    var initialPlaceHolderAlpha: CGFloat = 0.5
-
+    var currentState = MaterialTextFieldState.inactiveNotEdited
+    var _initialPlaceHolderAlpha: CGFloat = 0.5
+    var _activeTitleColor = UIColor.blueColor()
+    var _inactiveTitleColor = UIColor.grayColor()
+    var _lineColor = UIColor.grayColor()
+    var _placeHolderColor = UIColor.grayColor()
+    
+    enum MaterialTextFieldState {
+        case inactiveNotEdited
+        case inactiveEdited
+        case focusedNotEdited
+        case focusedAndEdited
+    }
+    
     required init(coder aDecoder: NSCoder?) {
         super.init(coder: aDecoder!)
+        self.delegate = self
+
     }
     
     override init(frame: CGRect) {
         let theFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 40))
         super.init(frame: theFrame)
-        self.delegate = self
-        self.awakeFromNib()
+        initializeMaterialDesign()
     }
     
-    override var placeholder: String? {
+    var initialPlaceHolderAlpha: CGFloat {
         get {
-            return self.placeHolderString
+            return self._initialPlaceHolderAlpha
         }
         set {
-            if self.placeHolderString == "" {
-                self.placeHolderString = newValue!
-                PlaceHolderText = UILabel(frame: CGRect(x: padding.left, y: padding.top + 10, width: self.frame.width, height: self.frame.height-padding.top))
-                PlaceHolderText.text = self.placeHolderString
-                PlaceHolderText.font = self.font
-                PlaceHolderText.textColor = self.placeHolderColor
+            self._initialPlaceHolderAlpha = newValue
+            if currentState == MaterialTextFieldState.inactiveNotEdited {
                 PlaceHolderText.alpha = self.initialPlaceHolderAlpha
-                PlaceHolderText.sizeToFit()
-                
-                TitleText = UILabel(frame: CGRect(x: padding.left, y:14, width: self.frame.width, height: self.frame.height))
-                TitleText.text = self.placeHolderString
-                TitleText.font = UIFont(name: PlaceHolderText.font.familyName, size: 10)
+            }
+        }
+    }
+    
+    var activeTitleColor: UIColor {
+        get {
+            return self._activeTitleColor
+        }
+        set {
+            self._activeTitleColor = newValue
+            if currentState == MaterialTextFieldState.focusedAndEdited {
+                TitleText.textColor = self.activeTitleColor
+            }
+        }
+    }
+    
+    var inactiveTitleColor: UIColor {
+        get{
+            return self._inactiveTitleColor
+        }
+        set {
+            self._inactiveTitleColor = newValue
+            if currentState == MaterialTextFieldState.inactiveNotEdited || currentState == MaterialTextFieldState.focusedNotEdited ||  currentState == MaterialTextFieldState.inactiveEdited {
                 TitleText.textColor = self.inactiveTitleColor
-                TitleText.sizeToFit()
-                TitleText.alpha = 0.0
-                
-                self.addSubview(PlaceHolderText)
-                self.addSubview(TitleText)
-            } else {
+            }
+        }
+    }
+    
+    var placeHolderColor: UIColor {
+        get{
+            return self._placeHolderColor
+        }
+        set {
+            self._placeHolderColor = newValue
+            PlaceHolderText.textColor = self.placeHolderColor
+        }
+    }
+
+    var lineColor: UIColor {
+        get{
+            return self._lineColor
+        }
+        set {
+            self._lineColor = newValue
+            Line.backgroundColor = self.lineColor
+        }
+    }
+
+    override var placeholder: String? {
+        get {
+            return placeHolderString
+        }
+        set {
                 self.placeHolderString = newValue!
                 PlaceHolderText.text = self.placeHolderString
                 PlaceHolderText.sizeToFit()
                 TitleText.text = self.placeHolderString
                 TitleText.sizeToFit()
             }
-        }
+    }
+    
+    func initializeMaterialDesign() {
+        self.placeHolderString = String(super.placeholder!)
+        super.placeholder = ""
+        
+        Line = UIView(frame: CGRect(x: padding.left/2, y: self.frame.height-2, width: self.frame.width, height: 1))
+        Line.backgroundColor = lineColor
+        
+        PlaceHolderText = UILabel(frame: CGRect(x: padding.left, y: padding.top + 10, width: self.frame.width, height: self.frame.height-padding.top))
+        PlaceHolderText.text = self.placeHolderString
+        PlaceHolderText.font = self.font
+        PlaceHolderText.textColor = self.placeHolderColor
+        PlaceHolderText.alpha = self.initialPlaceHolderAlpha
+        PlaceHolderText.sizeToFit()
+    
+        TitleText = UILabel(frame: CGRect(x: padding.left, y:14, width: self.frame.width, height: self.frame.height))
+        TitleText.text = self.placeHolderString
+        TitleText.font = UIFont(name: PlaceHolderText.font.familyName, size: 10)
+        TitleText.textColor = self.inactiveTitleColor
+        TitleText.sizeToFit()
+        TitleText.alpha = 0.0
+    
+        self.addSubview(Line)
+        self.addSubview(PlaceHolderText)
+        self.addSubview(TitleText)
+        self.backgroundColor = UIColor.clearColor()
+        self.borderStyle = UITextBorderStyle.None
+        self.layer.borderWidth = 0
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.borderStyle = UITextBorderStyle.None
-        self.layer.borderWidth = 0
-        
-        var Line = UIView(frame: CGRect(x: padding.left/2, y: self.frame.height-2, width: self.frame.width, height: 1))
-        Line.backgroundColor = UIColor.grayColor()
-        
-        self.addSubview(Line)
+        initializeMaterialDesign()
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if textField.text == "" && countElements(string)>0 {
-            TitleText.textColor = self.activeTitleColor
-            UIView.animateWithDuration(animDurationEditing - 0.1, animations: { () -> Void in
-                self.PlaceHolderText.alpha = 0.0
-            }, completion: nil)
-                    
-            UIView.animateWithDuration(animDurationEditing, animations: { () -> Void in
-                self.TitleText.alpha = 1
-                self.TitleText.frame = CGRect(x: self.padding.left, y:-14, width: textField.frame.width, height: textField.frame.height)
-            }, completion: nil)
-        }
-        
-        return materialDelegate?.materialTextField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
-    }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.text == "" {
                 UIView.animateWithDuration(animDurationFocus, animations: { () -> Void in
                     self.PlaceHolderText.alpha = 1
                     }, completion: nil)
+                currentState = MaterialTextFieldState.focusedNotEdited
+
         } else {
                 UIView.transitionWithView(self.TitleText, duration: animDurationFocus, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                         self.TitleText.textColor = self.activeTitleColor
                 }, completion: nil)
+                currentState = MaterialTextFieldState.focusedAndEdited
+
         }
         materialDelegate?.materialTextFieldDidBeginEditing?(textField)
     }
-    
+ 
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField.text == "" && countElements(string)>0 {
+            TitleText.textColor = self.activeTitleColor
+            UIView.animateWithDuration(animDurationEditing - 0.1, animations: { () -> Void in
+                self.PlaceHolderText.alpha = 0.0
+                }, completion: nil)
+            
+            UIView.animateWithDuration(animDurationEditing, animations: { () -> Void in
+                self.TitleText.alpha = 1
+                self.TitleText.frame = CGRect(x: self.padding.left, y:-14, width: textField.frame.width, height: textField.frame.height)
+                }, completion: nil)
+            currentState = MaterialTextFieldState.focusedAndEdited
+        }
+        
+        return materialDelegate?.materialTextField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
+    }
+
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.text != "" {
             UIView.transitionWithView(self.TitleText, duration: animDurationLostFocus - 0.1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                     self.TitleText.textColor = self.inactiveTitleColor
             }, completion: nil)
+            currentState = MaterialTextFieldState.inactiveNotEdited
+            
         } else {
             UIView.animateWithDuration(animDurationLostFocus, animations: { () -> Void in
                 self.PlaceHolderText.alpha = self.initialPlaceHolderAlpha
@@ -140,6 +217,7 @@ class UIMaterialTextView: UITextField, UITextFieldDelegate {
             }, completion: {(completed) -> Void in
                 self.TitleText.frame = CGRect(x: self.padding.left, y:14, width: textField.frame.width, height: textField.frame.height)
             })
+            currentState = MaterialTextFieldState.inactiveEdited
         }
         
         materialDelegate?.materialTextFieldDidEndEditing?(textField)
