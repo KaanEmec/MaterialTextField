@@ -8,7 +8,6 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MaterialDesignTextField" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -18,15 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-Gi-wT3" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-Gi-wT3" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="59" width="274" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TVr-GO-RhU"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-2q-gTx" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-2q-gTx" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="107" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="twn-Hq-cYM"/>
@@ -34,7 +30,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BPM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-UH-nNk" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BPM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-UH-nNk" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="155" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fOv-7o-bf0"/>
@@ -42,11 +38,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cf1-OE-URo" customClass="UIMaterialTextView" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cf1-OE-URo" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="203" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Yod-Ow-If7"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HQP-Eu-bHK">
+                                <rect key="frame" x="23" y="346" width="223" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -65,9 +66,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="denemeField" destination="7Xd-Gi-wT3" id="MR7-LA-hzH"/>
+                        <outlet property="ArtistField" destination="MoU-2q-gTx" id="Mrb-U5-OYo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

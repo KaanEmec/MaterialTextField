@@ -8,17 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextViewDelegate {
-
-
-    @IBOutlet var denemeField: UIMaterialTextView!
+class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextFieldDelegate {
+    
+    @IBOutlet var ArtistField: UIMaterialTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        // Do any additional setup after loading the view, typically from a nib.
-        denemeField.materialDelegate = self
-        denemeField.activeTitleColor = UIColor.blueColor()
+        println(ArtistField.textRectForBounds(CGRect(origin: ArtistField.frame.origin, size: ArtistField.frame.size)))
+        
     }
     
     func materialTextFieldShouldBeginEditing(textField: UITextField) -> Bool {
@@ -47,7 +44,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextViewD
     
     func materialTextFieldShouldReturn(textField: UITextField) -> Bool {
         textField.endEditing(true)
-        //denemeField.activeTitleColor = UIColor.purpleColor()
         return false
     }// called when 'return' key pressed. return NO to ignore.
 }
