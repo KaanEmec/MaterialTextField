@@ -447,7 +447,6 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // ---------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------
     
-    
     override func textRectForBounds(bounds: CGRect) -> CGRect {
     return self.newBounds(bounds)
     }

@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextField
     @IBOutlet var ArtistField: UIMaterialTextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        println(ArtistField.textRectForBounds(CGRect(origin: ArtistField.frame.origin, size: ArtistField.frame.size)))
-        
+        super.viewDidLoad()        
     }
     
     func materialTextFieldShouldBeginEditing(textField: UITextField) -> Bool {
