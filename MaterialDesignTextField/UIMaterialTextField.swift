@@ -7,7 +7,7 @@
 //
 //  ----------------------------------------------------------------------------------
 //  ----------------------------------------------------------------------------------
-//  USAGE: Placing a UIMaterialTextField on a view is fairly simple. There are 2 ways:
+//  USAGE: Placing a UIMaterialTextField on a view is fairly straightforward. There are 2 ways:
 //
 //  1. Using Interface Builder & Standard UITextField
 //      - Place a standard UITextField using Interface Builder
@@ -64,13 +64,13 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     private var _activeTitleColor = UIColor.blueColor()
     // Private variable used to store the value of activeTitleColor property
     
-    private var _inactiveTitleColor = UIColor.grayColor()
+    private var _inactiveTitleColor = UIColor.darkGrayColor()
     // Private variable used to store the value of inactiveTitleColor property
     
-    private var _lineColor = UIColor.grayColor()
+    private var _lineColor = UIColor.lightGrayColor()
     // Private variable used to store the value of lineColor property
     
-    private var _placeHolderColor = UIColor.grayColor()
+    private var _placeHolderColor = UIColor.darkGrayColor()
     // Private variable used to store the value of placeHolderColor property
     
     
@@ -243,7 +243,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     override init(frame: CGRect) {
         let theFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 40))
         super.init(frame: theFrame)
-        initializeMaterialDesign() // Transform the created UITextField to MaterialDesign a look
+        initializeMaterialDesign() // Transform the created UITextField to MaterialDesign look
     }
     
     
@@ -253,7 +253,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // ------------------------------------------------------------------------------------
     override func awakeFromNib() {
         super.awakeFromNib()
-        initializeMaterialDesign() // Transform the created UITextField to MaterialDesign a look
+        initializeMaterialDesign() // Transform the created UITextField to MaterialDesign look
     }
     
     
@@ -270,7 +270,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
         self.placeHolderString = String(super.placeholder!)
         super.placeholder = ""
         
-        Line = UIView(frame: CGRect(x: padding.left/2, y: self.frame.height-padding.top, width: self.frame.width, height: 1))
+        Line = UIView(frame: CGRect(x: padding.left/2, y: self.frame.height-2, width: self.frame.width, height: 1))
         Line.backgroundColor = lineColor
         
         PlaceHolderText = UILabel(frame: CGRect(x: padding.left, y: padding.top + 10, width: self.frame.width, height: self.frame.height-padding.top))
@@ -280,7 +280,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
         PlaceHolderText.alpha = self.initialPlaceHolderAlpha
         PlaceHolderText.sizeToFit()
         
-        TitleText = UILabel(frame: CGRect(x: padding.left+1, y:13, width: self.frame.width, height: self.frame.height))
+        TitleText = UILabel(frame: CGRect(x: padding.left, y:14, width: self.frame.width, height: self.frame.height))
         TitleText.text = self.placeHolderString
         TitleText.font = UIFont(name: PlaceHolderText.font.familyName, size: 10)
         TitleText.textColor = self.inactiveTitleColor
@@ -341,7 +341,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     //    - If the field is already filled do nothing
     // ---------------------------------------------------------------------------------------
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if textField.text == "" && countElements(string)>0 {
+        if textField.text == "" && count(string)>0 {
             TitleText.textColor = self.activeTitleColor
             UIView.animateWithDuration(animDurationEditing - 0.1, animations: { () -> Void in
                 self.PlaceHolderText.alpha = 0.0
@@ -349,7 +349,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
             
             UIView.animateWithDuration(animDurationEditing, animations: { () -> Void in
                 self.TitleText.alpha = 1
-                self.TitleText.frame = CGRect(x: self.padding.left+1, y:-13, width: self.frame.width, height: self.frame.height)
+                self.TitleText.frame = CGRect(x: self.padding.left, y:-14, width: self.frame.width, height: self.frame.height)
                 }, completion: nil)
             currentState = MaterialTextFieldState.focusedAndEdited
         }
@@ -379,9 +379,9 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
             
             UIView.animateWithDuration(animDurationLostFocus, animations: { () -> Void in
                 self.TitleText.alpha = 0
-                self.TitleText.frame = CGRect(x: self.padding.left+1, y:-5, width: self.frame.width, height: self.frame.height)
+                self.TitleText.frame = CGRect(x: self.padding.left, y:-5, width: self.frame.width, height: self.frame.height)
                 }, completion: {(completed) -> Void in
-                    self.TitleText.frame = CGRect(x: self.padding.left+1, y:13, width: self.frame.width, height: self.frame.height)
+                    self.TitleText.frame = CGRect(x: self.padding.left, y:14, width: self.frame.width, height: self.frame.height)
             })
             currentState = MaterialTextFieldState.inactiveEdited
         }
@@ -397,8 +397,9 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // value of the field is changed without the keyboard (using runtime code)
     // ------------------------------------------------------------------------------------
     private func TextChangedInRuntime(){
-        let theRange = NSMakeRange(0, countElements(self.text))
+        let theRange = NSMakeRange(0, count(self.text))
         textField(UITextField(),shouldChangeCharactersInRange: theRange, replacementString: self.text)
+        textFieldDidEndEditing(self)
     }
     
     
@@ -437,33 +438,31 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     
     
     
-    
-    private let padding = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0);
-    
-    
     // ---------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------
     // This part overrides the padding delegates of the parent UItextfield to create space for custom UILabel views.
     // ---------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------
     
+    private let padding = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0);
+    
     override func textRectForBounds(bounds: CGRect) -> CGRect {
-    return self.newBounds(bounds)
+        return self.newBounds(bounds)
     }
     
     
     override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-    return self.newBounds(bounds)
+        return self.newBounds(bounds)
     }
     
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
-    return self.newBounds(bounds)
+        return self.newBounds(bounds)
     }
     
     private func newBounds(bounds: CGRect) -> CGRect {
-    var newBounds = bounds
-    newBounds.origin.x += padding.left
-    newBounds.origin.y += padding.top
-    return newBounds
-    }    
+        var newBounds = bounds
+        newBounds.origin.x += padding.left
+        newBounds.origin.y += padding.top
+        return newBounds
+    }
 }
