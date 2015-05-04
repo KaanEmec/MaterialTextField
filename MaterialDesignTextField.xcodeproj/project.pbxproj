@@ -14,6 +14,7 @@
 		986EC8201AC9554D0059C1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986EC81E1AC9554D0059C1B4 /* LaunchScreen.xib */; };
 		986EC82C1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC82B1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift */; };
 		986EC8421AC9AEFB0059C1B4 /* UIMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986EC8411AC9AEFB0059C1B4 /* UIMaterialTextField.swift */; };
+		98A0B02C1AF7CD55008D6E4C /* MaterialDesignField_ShowCase.gif in Resources */ = {isa = PBXBuildFile; fileRef = 98A0B02B1AF7CD55008D6E4C /* MaterialDesignField_ShowCase.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		986EC82A1AC9554D0059C1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986EC82B1AC9554D0059C1B4 /* MaterialDesignTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDesignTextFieldTests.swift; sourceTree = "<group>"; };
 		986EC8411AC9AEFB0059C1B4 /* UIMaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMaterialTextField.swift; sourceTree = "<group>"; };
+		98A0B02B1AF7CD55008D6E4C /* MaterialDesignField_ShowCase.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MaterialDesignField_ShowCase.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				986EC8191AC9554D0059C1B4 /* Main.storyboard */,
 				986EC81C1AC9554D0059C1B4 /* Images.xcassets */,
 				986EC81E1AC9554D0059C1B4 /* LaunchScreen.xib */,
+				98A0B02B1AF7CD55008D6E4C /* MaterialDesignField_ShowCase.gif */,
 				986EC8131AC9554D0059C1B4 /* Supporting Files */,
 			);
 			path = MaterialDesignTextField;
@@ -197,6 +200,7 @@
 			files = (
 				986EC81B1AC9554D0059C1B4 /* Main.storyboard in Resources */,
 				986EC8201AC9554D0059C1B4 /* LaunchScreen.xib in Resources */,
+				98A0B02C1AF7CD55008D6E4C /* MaterialDesignField_ShowCase.gif in Resources */,
 				986EC81D1AC9554D0059C1B4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
