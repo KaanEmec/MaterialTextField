@@ -1,6 +1,8 @@
 # MaterialTextField
 Simple UITextfield Subclass with cool material design animations.
 
+![Demo](/MaterialDesignTextField/MaterialDesignField_ShowCase.gif)
+
 This is a textfield subclass with a totally different look. The design and animations are inspired by Google's material design language.
 
 USAGE: Placing a UIMaterialTextField on a view is fairly straightforward. There are 2 ways:
