@@ -125,7 +125,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // The text property which overries the original text property of the parent UITextField
     // This property is overrided because an animation should be run when a text is entered.
     // ---------------------------------------------------------------------------------------------------
-    override var text:String! {
+    override var text:String? {
         get{
             return super.text
         }
@@ -228,7 +228,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // ------------------------------------------------------------------------------------
     // The default initializer
     // ------------------------------------------------------------------------------------
-    required init(coder aDecoder: NSCoder?) {
+    required init?(coder aDecoder: NSCoder?) {
         super.init(coder: aDecoder!)
         // The delegate of the parent UITextfield is set to self to handle focus, text editing and loose focus events
         self.delegate = self
@@ -341,7 +341,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     //    - If the field is already filled do nothing
     // ---------------------------------------------------------------------------------------
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if textField.text == "" && count(string)>0 {
+        if textField.text == "" && string.characters.count>0 {
             TitleText.textColor = self.activeTitleColor
             UIView.animateWithDuration(animDurationEditing - 0.1, animations: { () -> Void in
                 self.PlaceHolderText.alpha = 0.0
@@ -397,8 +397,8 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     // value of the field is changed without the keyboard (using runtime code)
     // ------------------------------------------------------------------------------------
     private func TextChangedInRuntime(){
-        let theRange = NSMakeRange(0, count(self.text))
-        textField(UITextField(),shouldChangeCharactersInRange: theRange, replacementString: self.text)
+        let theRange = NSMakeRange(0, self.text!.characters.count)
+        textField(UITextField(),shouldChangeCharactersInRange: theRange, replacementString: self.text!)
         textFieldDidEndEditing(self)
     }
     
