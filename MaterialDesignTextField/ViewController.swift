@@ -10,10 +10,26 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextFieldDelegate {
     
-    @IBOutlet var ArtistField: UIMaterialTextField!
+    @IBOutlet weak var nameField: UIMaterialTextField!
+    @IBOutlet weak var surnameField: UIMaterialTextField!
+    @IBOutlet weak var somenumberField: UIMaterialTextField!
+    @IBOutlet weak var somemoretextField: UIMaterialTextField!
+    
+    var fieldCreatedOnTheFly: UIMaterialTextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        nameField.materialDelegate = self
+        surnameField.materialDelegate = self
+        somenumberField.materialDelegate = self
+        somemoretextField.materialDelegate = self
+        
+        let newOrigin:CGPoint = CGPoint(x: somemoretextField.frame.origin.x, y: somemoretextField.frame.origin.y + 75)
+        let newCGRect:CGRect = CGRect(origin: newOrigin, size: somemoretextField.frame.size)
+        fieldCreatedOnTheFly = UIMaterialTextField(frame: newCGRect)
+        fieldCreatedOnTheFly.placeholder = "Created programatically"
+        fieldCreatedOnTheFly.materialDelegate = self
+        self.view.addSubview(fieldCreatedOnTheFly)
     }
     
     func materialTextFieldShouldBeginEditing(textField: UITextField) -> Bool {
@@ -21,7 +37,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIMaterialTextField
     }// return NO to disallow editing.
     
     func materialTextFieldDidBeginEditing(textField: UITextField) {
-        
     }// became first responder
 
     func materialTextFieldShouldEndEditing(textField: UITextField) -> Bool {

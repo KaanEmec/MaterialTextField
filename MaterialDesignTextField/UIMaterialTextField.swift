@@ -243,6 +243,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     override init(frame: CGRect) {
         let theFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 40))
         super.init(frame: theFrame)
+        self.delegate = self
         initializeMaterialDesign() // Transform the created UITextField to MaterialDesign look
     }
     
@@ -267,7 +268,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     //    - Creating a view object for the bottom line
     // ------------------------------------------------------------------------------------
     func initializeMaterialDesign() {
-        self.placeHolderString = String(super.placeholder!)
+        self.placeHolderString = String(super.placeholder ?? "")
         super.placeholder = ""
         
         Line = UIView(frame: CGRect(x: padding.left/2, y: self.frame.height-2, width: self.frame.width, height: 1))

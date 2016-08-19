@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-Gi-wT3" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-Gi-wT3" userLabel="nameField" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="59" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XPe-gL-R6T"/>
@@ -26,7 +26,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Some Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-UH-nNk" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Some Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1M-UH-nNk" userLabel="somenumberField" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="155" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fOv-7o-bf0"/>
@@ -34,7 +34,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Some More Text" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cf1-OE-URo" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Some More Text" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cf1-OE-URo" userLabel="somemoretextField" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="203" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Yod-Ow-If7"/>
@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-2q-gTx" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-2q-gTx" userLabel="surnameField" customClass="UIMaterialTextField" customModule="MaterialDesignTextField" customModuleProvider="target">
                                 <rect key="frame" x="23" y="107" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="twn-Hq-cYM"/>
@@ -69,7 +69,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="ArtistField" destination="MoU-2q-gTx" id="Mrb-U5-OYo"/>
+                        <outlet property="nameField" destination="7Xd-Gi-wT3" id="itU-n2-feb"/>
+                        <outlet property="somemoretextField" destination="Cf1-OE-URo" id="Zix-tG-fbg"/>
+                        <outlet property="somenumberField" destination="X1M-UH-nNk" id="1Gm-12-VvL"/>
+                        <outlet property="surnameField" destination="MoU-2q-gTx" id="IEg-ga-4Lr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
